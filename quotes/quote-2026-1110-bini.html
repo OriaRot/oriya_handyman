@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>הצעת מחיר 2026-1110 – ביני</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink:#141a22; --teal:#14a08c; --muted:#6b7280; --line:#e5e7eb; --panel:#f3f4f6; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Heebo', sans-serif; color: var(--ink); background:#fff; font-size: 13px; }
+  .page { width: 210mm; height: 297mm; padding: 14mm 15mm 10mm; position: relative; }
+
+  header { display:flex; justify-content:space-between; align-items:flex-start; }
+  .brand { display:flex; flex-direction:column; gap:10px; }
+  .logo { display:flex; align-items:center; gap:10px; }
+  .logo-text { font-size: 40px; line-height:1; }
+  .logo-text b { font-weight: 900; }
+  .logo-text span { font-weight: 300; }
+  .logo-underline { height: 10px; width: 200px; margin-top: 6px; }
+  .tagline { color: #4b5563; font-size: 12px; letter-spacing: .5px; }
+
+  .doc-title { text-align:left; }
+  .doc-title h1 { font-size: 38px; font-weight: 900; line-height: 1; margin-bottom: 18px; }
+  .doc-title h1 .dot { color: var(--teal); }
+  .meta { display:grid; grid-template-columns: auto auto; gap: 8px 50px; direction: rtl; font-size: 12.5px; }
+  .meta .k { color: var(--muted); }
+  .meta .v { font-weight: 700; text-align:left; }
+
+  .ruler { margin: 22px 0 20px; height: 14px; width: 100%; }
+
+  .sec-h { display:flex; align-items:center; gap:8px; font-weight:700; font-size: 14px; margin-bottom: 10px; }
+  .num { border: 1.5px solid var(--teal); color: var(--teal); border-radius: 4px; font-size: 11px; padding: 0 5px; font-weight: 700; }
+
+  .row2 { display:grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .panel { background: var(--panel); border-radius: 10px; padding: 12px 18px; }
+  .client .r { display:flex; justify-content:space-between; padding: 7px 0; border-bottom: 1px solid #d9dce1; }
+  .client .r:last-child { border-bottom: 0; }
+  .client .k { color: var(--muted); font-size: 12px; }
+  .client .v { font-weight: 700; font-size: 13.5px; }
+  .client .v.empty { display:inline-block; width: 150px; border-bottom: 1px dotted #9ca3af; }
+  .desc { line-height: 1.75; font-size: 13.5px; }
+
+  .table-wrap { margin-top: 24px; }
+  .table-head { display:flex; justify-content:space-between; align-items:flex-end; }
+  .table-head small { color: var(--muted); font-size: 10.5px; margin-bottom: 10px; }
+  table { width:100%; border-collapse: collapse; }
+  thead th { background: var(--ink); color:#fff; font-weight: 500; font-size: 12px; padding: 9px 10px; text-align:right; }
+  thead th:first-child { border-radius: 0 8px 8px 0; color:#9ca3af; width: 26px; }
+  thead th:last-child { border-radius: 8px 0 0 8px; text-align:left; }
+  tbody td { padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 13px; line-height: 1.6; }
+  tbody td:first-child { color: var(--muted); }
+  tbody td:last-child { text-align:left; font-weight:700; }
+  .c-qty { width: 60px; } .c-unit { width: 80px; } .c-price { width: 95px; } .c-tot { width: 110px; }
+
+  .totals { width: 345px; margin-right: auto; margin-top: 14px; background: var(--panel); border-radius: 10px; overflow:hidden; }
+  .totals .r { display:flex; justify-content:space-between; padding: 8px 18px; font-size: 13px; }
+  .totals .r b { font-weight: 700; }
+  .totals .grand { background: var(--ink); color:#fff; padding: 13px 18px; align-items:center; }
+  .totals .grand b { color: var(--teal); font-size: 22px; font-weight: 800; }
+
+  .row2.bottom { margin-top: 22px; }
+  .notes { font-size: 13px; line-height: 1.85; }
+  .notes h4 { font-size: 12.5px; font-weight:700; margin-bottom: 4px; }
+  ol.terms { list-style: none; counter-reset: t; font-size: 12px; line-height: 1.75; }
+  ol.terms li { counter-increment: t; position: relative; padding-right: 16px; margin-bottom: 4px; }
+  ol.terms li::before { content: counter(t) "."; position:absolute; right:0; color: var(--teal); font-weight:700; }
+
+  .approve { margin-top: 24px; border: 1.5px solid var(--ink); border-radius: 10px; padding: 12px 18px 14px; }
+  .approve h4 { font-size: 13px; font-weight:700; }
+  .approve p { color: var(--muted); font-size: 11.5px; margin-top: 3px; }
+  .sig { display:grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px; }
+  .sig div { border-top: 1.5px solid #9ca3af; padding-top: 6px; color: var(--muted); font-size: 11px; }
+
+  footer { position:absolute; left: 15mm; right: 15mm; bottom: 10mm; border-top: 3px solid var(--ink); padding-top: 10px; display:flex; justify-content:space-between; font-size: 11.5px; }
+  footer .k { color: var(--muted); }
+  footer b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand">
+      <div>
+        <div class="logo">
+          <svg width="44" height="50" viewBox="0 0 44 50" aria-hidden="true">
+            <rect x="0" y="0" width="10" height="50" fill="#141a22"/>
+            <rect x="0" y="0" width="44" height="10" fill="#141a22"/>
+            <g stroke="#fff" stroke-width="1.4"><line x1="16" y1="0" x2="16" y2="5"/><line x1="22" y1="0" x2="22" y2="7"/><line x1="28" y1="0" x2="28" y2="5"/><line x1="34" y1="0" x2="34" y2="7"/><line x1="40" y1="0" x2="40" y2="5"/></g>
+            <rect x="21" y="16" width="9" height="20" fill="#14a08c"/>
+            <polygon points="21,36 30,36 25.5,46" fill="#f2c14e"/>
+            <polygon points="24,42.5 27,42.5 25.5,46" fill="#141a22"/>
+          </svg>
+          <div class="logo-text"><b>אוריה</b> <span>הנדימן</span></div>
+        </div>
+        <svg class="logo-underline" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="8" x2="200" y2="8" stroke="#14a08c" stroke-width="2"/>
+          <g stroke="#14a08c" stroke-width="1.5"><line x1="2" y1="1" x2="2" y2="8"/><line x1="40" y1="3" x2="40" y2="8"/><line x1="80" y1="3" x2="80" y2="8"/><line x1="120" y1="3" x2="120" y2="8"/><line x1="160" y1="3" x2="160" y2="8"/><line x1="198" y1="1" x2="198" y2="8"/></g>
+        </svg>
+      </div>
+      <div class="tagline">מודד. מסמן. מתקן.</div>
+    </div>
+    <div class="doc-title">
+      <h1>הצעת מחיר<span class="dot">.</span></h1>
+      <div class="meta">
+        <span class="k">מס׳ הצעה</span><span class="v">2026-1110</span>
+        <span class="k">תאריך</span><span class="v">10.11.2026</span>
+        <span class="k">בתוקף עד</span><span class="v">24.11.2026</span>
+      </div>
+    </div>
+  </header>
+
+  <svg class="ruler" id="ruler" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+  <div class="row2">
+    <section>
+      <div class="sec-h"><span class="num">01</span>פרטי הלקוח</div>
+      <div class="panel client">
+        <div class="r"><span class="k">שם</span><span class="v">ביני</span></div>
+        <div class="r"><span class="k">טלפון</span><span class="v empty"></span></div>
+        <div class="r"><span class="k">מקום העבודה</span><span class="v empty"></span></div>
+      </div>
+    </section>
+    <section>
+      <div class="sec-h"><span class="num">02</span>תיאור העבודה</div>
+      <div class="panel desc">
+        החלפת שלבים בתריס חשמלי בשלבי אלומיניום מוקצף בצבע לבן, באורך 189 ס״מ לכל שלב. כולל פירוק השלבים הקיימים, התקנת השלבים החדשים ובדיקת פעולת התריס בסיום.
+      </div>
+    </section>
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-head">
+      <div class="sec-h"><span class="num">03</span>פירוט העבודה והמחיר</div>
+      <small>המחירים בטבלה אינם כוללים מע״מ</small>
+    </div>
+    <table>
+      <thead><tr><th>#</th><th>תיאור</th><th class="c-qty">כמות</th><th class="c-unit">יחידה</th><th class="c-price">מחיר ליח׳</th><th class="c-tot">סה״כ</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>החלפת שלבים בתריס חשמלי: שלבי אלומיניום מוקצף בצבע לבן, אורך 189 ס״מ לשלב, כולל פירוק השלבים הישנים, התקנה ובדיקת פעולה</td>
+          <td>1</td><td>קומפ׳</td><td>725</td><td>₪725.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="totals">
+      <div class="r"><span>סה״כ לפני מע״מ</span><b>₪725.00</b></div>
+      <div class="r"><span>מע״מ 18%</span><b>₪130.50</b></div>
+      <div class="r grand"><span>סה״כ לתשלום כולל מע״מ</span><b>₪855.50</b></div>
+    </div>
+  </div>
+
+  <div class="row2 bottom">
+    <section>
+      <div class="sec-h"><span class="num">04</span>הערות</div>
+      <div class="panel notes">
+        <h4>חומרים:</h4>
+        <p>השלבים יסופקו על ידי אוריה הנדימן, לפי המפורט בטבלה.</p>
+      </div>
+    </section>
+    <section>
+      <div class="sec-h"><span class="num">05</span>תנאים</div>
+      <ol class="terms">
+        <li>אחריות על העבודה, בהתאם לסוג העבודה שבוצעה.</li>
+        <li>תשלום: כל אמצעי התשלום, כולל אשראי, ביט / פייבוקס והעברה בנקאית. תונפק חשבונית מס.</li>
+        <li>ההצעה בתוקף עד 24.11.2026.</li>
+        <li>שינוי בהיקף העבודה או ממצא לא צפוי בשטח — המחיר יתעדכן רק בתיאום ובאישור הלקוח מראש.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="approve">
+    <h4>אישור הלקוח</h4>
+    <p>קראתי את ההצעה ואת התנאים ואני מאשר/ת את ביצוע העבודה.</p>
+    <div class="sig"><div>שם</div><div>תאריך</div><div>חתימה</div></div>
+  </div>
+
+  <footer>
+    <span><span class="k">טלפון / וואטסאפ</span> <b dir="ltr">058-424-5955</b></span>
+    <span><span class="k">אתר</span> <b dir="ltr">oriya-handyman.co.il</b></span>
+    <span><b>מודיעין-מכבים-רעות</b></span>
+    <span><span class="k">עוסק מורשה</span> <b>322637083</b></span>
+  </footer>
+</div>
+<script>
+  const s = document.getElementById('ruler'); const w = 1000; s.setAttribute('viewBox', `0 0 ${w} 14`);
+  let g = `<line x1="0" y1="13" x2="${w}" y2="13" stroke="#141a22" stroke-width="1.5"/>`;
+  for (let i = 0; i <= 200; i++) { const x = i * w / 200; const h = i % 10 === 0 ? 12 : (i % 5 === 0 ? 8 : 5);
+    g += `<line x1="${x}" y1="${13-h}" x2="${x}" y2="13" stroke="${i%10===0?'#14a08c':'#141a22'}" stroke-width="${i%10===0?1.6:0.8}"/>`; }
+  s.innerHTML = g;
+</script>
+</body>
+</html>
